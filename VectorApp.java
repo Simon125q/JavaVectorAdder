@@ -70,9 +70,20 @@ public class VectorApp {
             if (vec_size != nextSize)
             {
                 System.out.println(vec_size + " != " + nextSize);
-                throw new DifferentLengthVectorsException("Vectors have different lengths, you will need to reenter them.", vectors);
+                throw new DifferentLengthVectorsException("Vectors have different lengths, you will need to reenter them.", getVectorsLengths());
             }
         }
+    }
+
+    public ArrayList<Integer> getVectorsLengths()
+    {
+        ArrayList<Integer> lengths = new ArrayList<>();
+        Iterator<Vector> vectorIterator = vectors.iterator();
+        while (vectorIterator.hasNext())
+        {
+            lengths.add(vectorIterator.next().length);
+        }
+        return lengths;
     }
 
 }

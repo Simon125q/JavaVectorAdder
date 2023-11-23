@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class DifferentLengthVectorsException extends Exception {
 
-    private ArrayList<Vector> vectors;
+    private ArrayList<Integer> lengths;
 
     public DifferentLengthVectorsException() {}
 
@@ -11,24 +10,15 @@ public class DifferentLengthVectorsException extends Exception {
         super(errorMessage);
     }
 
-    public DifferentLengthVectorsException(String errorMessage, ArrayList<Vector> vectors) {
+    public DifferentLengthVectorsException(String errorMessage, ArrayList<Integer> lengths) {
         super(errorMessage);
-        this.vectors = vectors;
+        this.lengths = lengths;
     }
 
     public ArrayList<Integer> getVectorsLengths()
     {
-        ArrayList<Integer> lengths = new ArrayList<>();
-        Iterator<Vector> vectorIterator = vectors.iterator();
-        while (vectorIterator.hasNext())
-        {
-            lengths.add(vectorIterator.next().length);
-        }
+        
         return lengths;
     }
 
-    public ArrayList<Vector> getVectors()
-    {
-        return vectors;
-    }
 }
